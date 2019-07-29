@@ -20,9 +20,13 @@ exports.reservas_detail_get = function (req, res) {
 }
 
 exports.reservas_create = function (req, res) {
+  console.log('peticionReserva', req.body);
   reservaModel.create(req.body)
     .then(data => {
       res.json(data);
     })
-    .catch(err => res.status(500).send(err));
+    .catch(err => {
+      console.log('error', err);
+      res.status(500).send(err);
+    });
 }
