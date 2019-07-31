@@ -9,8 +9,9 @@ exports.services_all_get = function (req, res) {
 }
 
 exports.services_detail_get = function (req, res) {
+  let varId = Number(req.params.id);
   // serviceModel.findOne({
-  //   where: { id: Number(req.params.id) },
+  //   where: { id: varId },
   //   attributes:['id', 'name', 'image', 'cost', 'description', 'happy']
   // })
   //   .then(data => {
@@ -19,8 +20,8 @@ exports.services_detail_get = function (req, res) {
   //   })
   //   .catch(err => res.status(500).send('error'));
 
-
-  serviceModel.findByPk(req.params.id, {
+  
+  serviceModel.findByPk(varId, {
     attributes: ['id', 'name', 'image', 'cost', 'description', 'happy']
   })
     .then(data => {
